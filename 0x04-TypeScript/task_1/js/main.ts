@@ -17,6 +17,9 @@ const teacher1: Teacher = {
   subject: "Mathematics",
 };
 
+console.log(teacher1);
+
+// Extending interfaces
 interface Director extends Teacher {
   numberOfReports: number;
 }
@@ -31,6 +34,9 @@ const director1: Director = {
   department: "Science",
 };
 
+console.log(director1);
+
+// Function interface
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -39,6 +45,35 @@ function printTeacher({ firstName, lastName }: { firstName: string; lastName: st
     return `${firstName}. ${lastName}`
 }
 
-console.log(teacher1);
-console.log(director1);
 console.log(printTeacher({ firstName: "Jane", lastName: "Smith" }));
+
+// Writing a class
+
+
+// Describe the class public API
+interface StudentInterface {
+    workOnHomework(): string;
+    displayName(): string;
+}
+
+// Describe the constructor signature
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentInterface;
+}
+
+class StudentClass implements StudentInterface {
+  constructor(private firstName: string, private lastName: string) {}
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage of the class
+const student1: StudentInterface = new StudentClass('Jane', 'Smith');
+console.log(student1.displayName());   // Jane
+console.log(student1.workOnHomework()); // Currently working
