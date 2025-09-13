@@ -39,6 +39,8 @@ function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 }
 
+const printTeacherVar: printTeacherFunction = printTeacher;
+
 console.log(teacher1);
 console.log(director1);
 console.log(printTeacher("Jane", "Smith"));
