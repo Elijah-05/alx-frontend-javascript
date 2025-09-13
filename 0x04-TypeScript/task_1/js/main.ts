@@ -68,7 +68,7 @@ interface StudentConstructor {
   new (firstName: string, lastName: string): StudentInterface;
 }
 
-class StudentClass implements StudentInterface {
+class StudentClass {
   firstName: string;
   lastName: string;
 
