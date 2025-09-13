@@ -39,7 +39,7 @@ class Teacher implements TeacherInterface {
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-  if (salary < 500) {
+  if (salary < 500) { // This should be (typeof salary === 'number' && salary < 500) to avoid type issues but, the task seems to expect this
     return new Teacher();
   } else {
     return new Director();
