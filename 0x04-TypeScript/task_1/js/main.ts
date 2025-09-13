@@ -41,19 +41,26 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-    return `${firstName}. ${lastName}`
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
+  return `${firstName}. ${lastName}`;
 }
 
 console.log(printTeacher({ firstName: "Jane", lastName: "Smith" }));
 
 // Writing a class
 
-
 // Describe the class public API
 interface StudentInterface {
-    workOnHomework(): string;
-    displayName(): string;
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
 }
 
 // Describe the constructor signature
@@ -62,7 +69,13 @@ interface StudentConstructor {
 }
 
 class StudentClass implements StudentInterface {
-  constructor(private firstName: string, private lastName: string) {}
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   workOnHomework(): string {
     return "Currently working";
@@ -74,6 +87,6 @@ class StudentClass implements StudentInterface {
 }
 
 // Example usage of the class
-const student1: StudentInterface = new StudentClass('Jane', 'Smith');
-console.log(student1.displayName());   // Jane
+const student1: StudentInterface = new StudentClass("Jane", "Smith");
+console.log(student1.displayName()); // Jane
 console.log(student1.workOnHomework()); // Currently working
