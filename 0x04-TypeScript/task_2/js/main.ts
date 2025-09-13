@@ -51,7 +51,7 @@ console.log(createEmployee(1000).constructor.name); // Director
 console.log(createEmployee('$500').constructor.name); // Director
 
 // Type predicate to check if an employee is a Director
-function isDirector(employee: Director | Teacher): employee is Director {
+function isDirector (employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
