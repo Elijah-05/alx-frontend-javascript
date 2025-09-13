@@ -31,5 +31,14 @@ const director1: Director = {
     department: "Science"
 };
 
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+    return `${firstName.charAt(0)}. ${lastName}`;
+}
+
 console.log(teacher1);
 console.log(director1);
+console.log(printTeacher(teacher1.firstName, teacher1.lastName));
