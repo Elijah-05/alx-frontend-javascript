@@ -42,4 +42,4 @@ function printTeacher(firstName: string, lastName: string): string {
 
 console.log(teacher1);
 console.log(director1);
-console.log(printTeacher(teacher1.firstName, teacher1.lastName));
+console.log(printTeacher("Jane", "Smith"));
